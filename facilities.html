@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket - Facilities and Offers</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom gradient background */
+        body {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffcc00, #0072ff);
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Background animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Card styling */
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Offer section */
+        .offer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #ffcc00;
+            padding: 15px;
+            border-radius: 10px;
+            color: #333;
+            text-align: center;
+        }
+
+        .facility-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body><nav>
+    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+
+   
+</nav>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card text-center p-4">
+                    <h1>Bus Ticket Facilities & Offers</h1>
+                    <p>Explore the best travel experience with our premium facilities and age/occasion-specific offers!</p>
+                </div>
+
+                <!-- Facilities Section -->
+                <div class="card my-4 p-4">
+                    <h2>Our Top Facilities</h2>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="bi bi-wifi facility-icon"></i> Free Wi-Fi on Board</li>
+                        <li><i class="bi bi-tv facility-icon"></i> In-seat Entertainment</li>
+                        <li><i class="bi bi-sun facility-icon"></i> Comfortable Reclining Seats</li>
+                        <li><i class="bi bi-box facility-icon"></i> Spacious Luggage Compartments</li>
+                        <li><i class="bi bi-lightning-charge facility-icon"></i> Charging Points at Every Seat</li>
+                        <li><i class="bi bi-cup facility-icon"></i> Complimentary Snacks on Selected Routes</li>
+                    </ul>
+                </div>
+
+                <!-- Age and Occasion Based Offers Section -->
+                <div class="card my-4 p-4">
+                    <h2>Special Offers</h2>
+                    <p class="offer" id="offerText">
+                        <!-- Offer will be updated by JavaScript -->
+                    </p>
+                    <p>Select your age group or check out our special occasion deals below to unlock exclusive offers!</p>
+
+                    <!-- Dropdown for Age Groups -->
+                    <div class="mb-3">
+                        <select class="form-select" id="ageGroup" onchange="updateOffer()">
+                            <option value="" selected>Select your age group</option>
+                            <option value="child">Under 12 - Child</option>
+                            <option value="teenager">13-19 - Teenager</option>
+                            <option value="adult">20-64 - Adult</option>
+                            <option value="senior">65+ - Senior Citizen</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons for Occasion Offers -->
+                    <div>
+                        <button class="btn btn-warning me-2" onclick="showOccasionOffer('festival')">Festive Season</button>
+                        <button class="btn btn-warning me-2" onclick="showOccasionOffer('newYear')">New Year Special</button>
+                        <button class="btn btn-warning" onclick="showOccasionOffer('valentine')">Valentine's Day</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript for Offer Selection -->
+    <script>
+        function updateOffer() {
+            const ageGroup = document.getElementById('ageGroup').value;
+            const offerText = document.getElementById('offerText');
+
+            // Offer logic based on age group
+            if (ageGroup === 'child') {
+                offerText.innerText = "Special 50% discount on tickets for children under 12!";
+            } else if (ageGroup === 'teenager') {
+                offerText.innerText = "Get 25% off for teenagers aged 13-19!";
+            } else if (ageGroup === 'adult') {
+                offerText.innerText = "Enjoy 10% off on all bookings for adults aged 20-64!";
+            } else if (ageGroup === 'senior') {
+                offerText.innerText = "Senior Citizens (65+) enjoy a flat 30% discount!";
+            } else {
+                offerText.innerText = "Select your age group to see exclusive offers!";
+            }
+        }
+
+        function showOccasionOffer(occasion) {
+            const offerText = document.getElementById('offerText');
+
+            // Offer logic based on occasion
+            if (occasion === 'festival') {
+                offerText.innerText = "Festive Season Offer: Get 40% off on all tickets during the festive period!";
+            } else if (occasion === 'newYear') {
+                offerText.innerText = "New Year Special: Book now and get up to 50% off on selected routes!";
+            } else if (occasion === 'valentine') {
+                offerText.innerText = "Valentine's Day Special: Buy 1 ticket, get 1 free for couples!";
+            }
+        }
+    </script>
+</body>
+</html>

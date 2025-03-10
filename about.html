@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bus Ticket</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom gradient background */
+        body {
+            background: linear-gradient(120deg, #00c6ff, #ff758c);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            margin: 0;
+        }
+
+        /* Background animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Card style */
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2, .card p {
+            color: white;
+        }
+
+        /* Offer section */
+        .offer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #ffcc00;
+            padding: 15px;
+            border-radius: 10px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Guarantee badges */
+        .guarantee-badge {
+            font-size: 1.5rem;
+            background-color: #28a745;
+            padding: 10px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card text-center p-4">
+                    <h1>About Us</h1>
+                    <p>Welcome to Bus Ticket, where success, comfort, and customer satisfaction are our top priorities! We’ve helped millions of travelers find reliable and affordable bus tickets, making us a leader in the industry.</p>
+                </div>
+
+                <!-- Dynamic Offers Section -->
+                <div class="offer my-4" id="offerSection">
+                    <!-- Special Offer will be injected by JavaScript -->
+                </div>
+
+                <!-- Success Section -->
+                <div class="card my-4 p-4">
+                    <h2>Our Success Story</h2>
+                    <p>With over 5 million tickets sold and a network of over 1000 routes, we are committed to making travel easier and more accessible for everyone. Our strong partnerships with the best bus operators guarantee that you can trust us with your travel plans.</p>
+                </div>
+
+                <!-- Facilities Section -->
+                <div class="card my-4 p-4">
+                    <h2>Our Facilities</h2>
+                    <ul class="list-unstyled">
+                        <li>✔ 24/7 Customer Support</li>
+                        <li>✔ Real-Time Bus Tracking</li>
+                        <li>✔ Comfortable Seating & Spacious Legroom</li>
+                        <li>✔ Free Wi-Fi on Selected Routes</li>
+                        <li>✔ Online & Offline Payment Options</li>
+                        <li>✔ Safety First with Regular Sanitization</li>
+                    </ul>
+                </div>
+
+                <!-- Guarantees Section -->
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <div class="guarantee-badge">100% Refund Guarantee</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="guarantee-badge">Price Match Guarantee</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="guarantee-badge">On-Time Guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to Dynamically Show Offers -->
+    <script>
+        // JavaScript to display a special offer based on the current date
+        const offerSection = document.getElementById("offerSection");
+        const today = new Date();
+        const month = today.getMonth();  // Get the current month (0-11)
+
+        // Define special offers based on the month
+        const offers = [
+            "New Year Special: 25% Off on All Routes!",
+            "Valentine's Day: Buy 1 Ticket, Get 1 Free!",
+            "Spring Sale: 15% Off on Select Routes!",
+            "Summer Special: Free Snacks on Board!",
+            "Autumn Deal: 10% Discount for Round Trips!",
+            "Festive Season: Up to 30% Off on Group Bookings!"
+        ];
+
+        // Determine the current offer to display
+        if (month === 0) {
+            offerSection.innerText = offers[0];
+        } else if (month === 1) {
+            offerSection.innerText = offers[1];
+        } else if (month >= 2 && month <= 4) {
+            offerSection.innerText = offers[2];
+        } else if (month >= 5 && month <= 7) {
+            offerSection.innerText = offers[3];
+        } else if (month >= 8 && month <= 9) {
+            offerSection.innerText = offers[4];
+        } else {
+            offerSection.innerText = offers[5];
+        }
+    </script>
+</body>
+</html>

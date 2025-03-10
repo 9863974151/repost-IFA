@@ -1,0 +1,33 @@
+/* Background image for the header */
+.bg-image {
+    background-image: url('bus-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Style for the header */
+header {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Customizing the features section */
+.features img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Styling the booking form */
+.booking-form {
+    background-color: #1873cd;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+
+
+
+
